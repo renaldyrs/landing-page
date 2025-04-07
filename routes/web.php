@@ -23,9 +23,7 @@ use App\Http\Controllers\HomeController;
 
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -39,7 +37,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+
 
 Route::resource('products', ProductController::class);
 Route::resource('categories', CategoryController::class);
@@ -48,12 +46,12 @@ Route::resource('categories', CategoryController::class);
 
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('dashboard.index');
 });
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
